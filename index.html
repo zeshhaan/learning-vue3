@@ -7,7 +7,20 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app">{{ message }} ❤️ It's nice to meet vue ☕️</div>
+    <div id="app">
+      <label for="Message">Type your message here</label>
+      <textarea
+        name="message"
+        id="Message"
+        cols="30"
+        rows="10"
+        v-model="message"
+      ></textarea>
+      <div>
+        <i>What you type will appear here → </i>
+        <div><mark>{{message}}</mark></div>
+      </div>
+    </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>
