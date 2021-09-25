@@ -6,3 +6,19 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+
+img {
+  background-color: rgb(250, 235, 235);
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  justify-content: center;
+  gap: 2rem;
+  list-style-type: none;
+}
