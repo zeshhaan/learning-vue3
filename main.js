@@ -3,7 +3,7 @@ import "./style.css";
 const App = {
   data() {
     return {
-      message: "",
+      checkedDish: [],
     };
   },
 };
