@@ -4,6 +4,8 @@ const App = {
   data() {
     return {
       dish: "",
+      num1:1,
+      num2:2
     };
   },
 };

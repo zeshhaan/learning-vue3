@@ -8,6 +8,10 @@
   </head>
   <body>
     <div id="app">
+      <div>
+        <input type="number" v-model.number="num1" /> +
+        <input type="number" v-model.number="num2" /> {{num1 + num2}}
+      </div>
       <select v-model="dish">
         <option>Chappathi</option>
         <option>Beef</option>
