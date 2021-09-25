@@ -8,7 +8,14 @@
   </head>
   <body>
     <div id="app">
-      <nav>Selected Dish: {{checkedDish}}</nav>
+      <nav class="flex">
+        <p v-if="checkedDish.length > 0" style="color: rgb(4, 59, 4)">
+          <span class="status">{{checkedDish.length}}</span> items selected → {{checkedDish}}
+        </p>
+        <p v-else="checkedDish.length > 0" style="color: crimson">
+          Select your favourite dish
+        </p>
+      </nav>
       <main>
         <ul>
           <li :key="dish.id" v-for="dish in dishes">
