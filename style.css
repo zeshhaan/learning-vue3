@@ -23,6 +23,7 @@ ul,
   gap: 2rem;
   list-style-type: none;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 span.status {
