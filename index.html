@@ -11,80 +11,15 @@
       <nav>Selected Dish: {{checkedDish}}</nav>
       <main>
         <ul>
-          <li>
+          <li :key="dish.id" v-for="dish in dishes">
             <div>
-              <label for="porotta">
-                <img
-                  src="https://media.istockphoto.com/photos/parotta-or-porotta-is-a-layered-flatbread-made-from-maida-or-atta-picture-id1339811566?b=1&k=20&m=1339811566&s=170667a&w=0&h=3vddMomSnKEkBL6giYshEPk4-nXCBjuunoJp8-m2lNI="
-                  alt="porotta"
-                  width="180"
-                  height="250"
-                />
-                <p>Porotta</p>
+              <label :for="dish.name">
+                <img :src="dish.url" alt="dish.name" width="180" height="250" />
+                <p>{{dish.name}}</p>
                 <input
                   type="checkbox"
-                  value="Porotta"
-                  id="porotta"
-                  v-model="checkedDish"
-                />
-                Add to Cart</label
-              >
-            </div>
-          </li>
-          <li>
-            <div>
-              <label for="beef">
-                <img
-                  src="https://i1.wp.com/www.sujiscooking.com/wp-content/uploads/2018/12/Kerala-Beef-Roast-or-Beef-Ularthiyathu-1.jpg?fit=1100%2C1650&ssl=1"
-                  alt="beef"
-                  width="180"
-                  height="250"
-                />
-                <p>Beef</p>
-                <input
-                  type="checkbox"
-                  value="Beef"
-                  id="beef"
-                  v-model="checkedDish"
-                />
-                Add to Cart</label
-              >
-            </div>
-          </li>
-          <li>
-            <div>
-              <label for="Chappathi">
-                <img
-                  src="https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Chapati-Breads_EXPS_FT20_136906_F_0721_1.jpg"
-                  alt="Chappathi"
-                  width="180"
-                  height="250"
-                />
-                <p>Chappathi</p>
-                <input
-                  type="checkbox"
-                  value="Chappathi"
-                  id="Chappathi"
-                  v-model="checkedDish"
-                />
-                Add to Cart</label
-              >
-            </div>
-          </li>
-          <li>
-            <div>
-              <label for="Butter-Chicken">
-                <img
-                  src="https://media.istockphoto.com/photos/tasty-butter-chicken-curry-dish-from-indian-cuisine-picture-id1300632831?b=1&k=20&m=1300632831&s=170667a&w=0&h=FjWbieLh-NkmRiL4xsaa3nEMjYmXxmRYpBtvipKGNW8="
-                  alt="Butter-Chicken"
-                  width="180"
-                  height="250"
-                />
-                <p>Butter-Chicken</p>
-                <input
-                  type="checkbox"
-                  value="Butter Chicken"
-                  id="Butter-Chicken"
+                  :value="dish.name"
+                  :id="dish.name"
                   v-model="checkedDish"
                 />
                 Add to Cart</label
