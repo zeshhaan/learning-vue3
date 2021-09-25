@@ -24,6 +24,7 @@ ul,
   list-style-type: none;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 span.status {
