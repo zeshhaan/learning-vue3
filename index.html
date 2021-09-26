@@ -28,7 +28,7 @@
                 disabled
                 v-if="cart.find( ({ name }) => name === dish.name )"
               >
-                Added to Cart
+                In Cart
               </button>
             </div>
           </li>
@@ -46,11 +46,17 @@
               <div class="card-item-details">
                 <p>{{item.name}}</p>
                 <p>₹ {{item.price}}</p>
+                <input
+                  type="number"
+                  min="1"
+                  v-model.number="item.count"
+                  @keyup.enter="addCount(item)"
+                />
               </div>
             </div>
           </li>
         </ul>
-        <div class="price-footer"><p>Total Amount: ₹ {{price}}</p></div>
+        <p>Total Amount: ₹ {{price}}</p>
       </aside>
 
       <div class="toast-message">

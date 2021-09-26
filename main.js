@@ -46,6 +46,14 @@ const App = {
       this.price = this.price + price;
       // this.count = this.cart.length;
     },
+    addCount(e) {
+      console.table(e);
+      this.cart.find(({ name }) => {
+        if (name === e.name) {
+          this.price = this.price + e.price * e.count;
+        }
+      });
+    },
   },
 };
 
