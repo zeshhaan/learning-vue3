@@ -18,7 +18,14 @@
         <option>Porotta</option>
       </select>
       <p v-if="dish">You selected {{dish}}</p>
+      <div>
+        <button @click="increment">+</button> {{ count }}
+        <button :class="count !== 0 ? '' : disabled " @click="decrement">
+          -
+        </button>
+      </div>
     </div>
+
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>
