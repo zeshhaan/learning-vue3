@@ -50,6 +50,8 @@ aside {
   padding: 10px 30px;
   box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
   overflow: scroll;
+  background-color: white;
+  z-index: 1;
 }
 
 aside ul {
@@ -151,4 +153,18 @@ aside div .count {
   display: inline-block;
   height: 20px;
   width: 20px;
+}
+
+.toast-message {
+  margin-top: 2rem;
+  background-color: lightyellow;
+  border: 1px solid lavender;
+  display: inline-block;
+  padding: 0px 20px;
+  cursor: progress;
+  border-radius: 2rem;
+}
+
+.toast-message p span {
+  font-weight: 600;
 }
