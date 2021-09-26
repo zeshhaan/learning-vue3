@@ -9,32 +9,33 @@
   <body>
     <div id="app">
       <nav class="flex">
-        <p v-if="checkedDish.length > 0" style="color: rgb(4, 59, 4)">
-          <span class="status">{{checkedDish.length}}</span> items selected → {{checkedDish}}
-        </p>
-        <p v-else="checkedDish.length > 0" style="color: crimson">
-          Select your favourite dish
-        </p>
+        <h2>Favourite Dishes</h2>
       </nav>
       <main>
         <ul>
           <li :key="dish.id" v-for="dish in dishes">
             <div>
-              <label :for="dish.name">
-                <img :src="dish.url" alt="dish.name" width="180" height="250" />
-                <p>{{dish.name}}</p>
-                <input
-                  type="checkbox"
-                  :value="dish.name"
-                  :id="dish.name"
-                  v-model="checkedDish"
-                />
-                Add to Cart</label
-              >
+              <img :src="dish.url" alt="dish.name" width="180" height="250" />
+              <p>{{dish.name}} | ${{dish.price}}</p>
+              <button :for="dish.name" @click="addToCart(dish)">
+                Add to Cart
+              </button>
             </div>
           </li>
         </ul>
       </main>
+      <aside v-if="cart.length">
+        <ul>
+          <li :key="item.id" v-for="item in cart">
+            <div class="cart-item">
+              <img :src="item.url" :alt="item.name" height="40" width="40" />
+              <p>{{item.name}}</p>
+            </div>
+          </li>
+        </ul>
+        <div class="price-footer">
+        </div>
+      </aside>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
