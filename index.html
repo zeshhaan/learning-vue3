@@ -17,8 +17,18 @@
             <div>
               <img :src="dish.url" alt="dish.name" width="180" height="250" />
               <p>{{dish.name}} · ₹ {{dish.price}}</p>
-              <button :for="dish.name" @click="addToCart(dish)">
+              <button
+                v-if="!cart.find( ({ name }) => name === dish.name )"
+                @click="addToCart(dish)"
+              >
                 Add to Cart
+              </button>
+
+              <button
+                disabled
+                v-if="cart.find( ({ name }) => name === dish.name )"
+              >
+                Added to Cart
               </button>
             </div>
           </li>
@@ -27,7 +37,7 @@
       <aside v-if="cart.length">
         <div>
           <p>Cart</p>
-          <p class="count">{{count}}</p>
+          <p class="count">{{cart.length}}</p>
         </div>
         <ul>
           <li :key="item.id" v-for="item in cart">
