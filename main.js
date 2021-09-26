@@ -30,6 +30,8 @@ const App = {
           price: 22,
         },
       ],
+      price: 0,
+      count: 0,
     };
   },
   methods: {
@@ -37,6 +39,8 @@ const App = {
       console.table(e);
       const { id, name, url, price } = e;
       this.cart.push({ name, id, url, price });
+      this.price = this.price + price;
+      this.count = this.cart.length;
     },
   },
 };

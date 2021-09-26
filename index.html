@@ -16,7 +16,7 @@
           <li :key="dish.id" v-for="dish in dishes">
             <div>
               <img :src="dish.url" alt="dish.name" width="180" height="250" />
-              <p>{{dish.name}} | ${{dish.price}}</p>
+              <p>{{dish.name}} · ₹ {{dish.price}}</p>
               <button :for="dish.name" @click="addToCart(dish)">
                 Add to Cart
               </button>
@@ -25,16 +25,22 @@
         </ul>
       </main>
       <aside v-if="cart.length">
+        <div>
+          <p>Cart</p>
+          <p class="count">{{count}}</p>
+        </div>
         <ul>
           <li :key="item.id" v-for="item in cart">
             <div class="cart-item">
               <img :src="item.url" :alt="item.name" height="40" width="40" />
-              <p>{{item.name}}</p>
+              <div class="card-item-details">
+                <p>{{item.name}}</p>
+                <p>₹ {{item.price}}</p>
+              </div>
             </div>
           </li>
         </ul>
-        <div class="price-footer">
-        </div>
+        <div class="price-footer"><p>Total Amount: ₹ {{price}}</p></div>
       </aside>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
