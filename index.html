@@ -8,28 +8,16 @@
   </head>
   <body>
     <div id="app">
-      <input
-        type="checkbox"
-        value="porotta"
-        id="porotta"
-        v-model="checkedDish"
-      />
-      <label for="porotta">Porotta</label>
-      <input type="checkbox" value="beef" id="beef" v-model="checkedDish" />
-      <label for="beef">Beef</label>
-      <input
-        type="checkbox"
-        value="Butter Chicken"
-        id="butter"
-        v-model="checkedDish"
-      />
-      <label for="butter">Butter Chicken</label>
-      <input type="checkbox" value="chilly" id="chilly" v-model="checkedDish" />
-      <label for="chilly">Chilly</label>
-      <input type="checkbox" value="tea" id="tea" v-model="checkedDish" />
-      <label for="tea">Tea</label>
-      <div>{{checkedDish}}</div>
-      <div v-html="attribution"></div>
+      <div>
+        <input type="number" v-model.number="num1" /> +
+        <input type="number" v-model.number="num2" /> {{num1 + num2}}
+      </div>
+      <select v-model="dish">
+        <option>Chappathi</option>
+        <option>Beef</option>
+        <option>Porotta</option>
+      </select>
+      <p v-if="dish">You selected {{dish}}</p>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
