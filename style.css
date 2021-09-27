@@ -41,6 +41,84 @@ a {
   cursor: pointer;
 }
 
+.toast-message {
+  margin-top: 2rem;
+  background-color: lightyellow;
+  border: 1px solid lavender;
+  display: inline-block;
+  padding: 0px 20px;
+  cursor: progress;
+  border-radius: 2rem;
+}
+
+.toast-message p span {
+  font-weight: 600;
+}
+
+/* BUTTON */
+
+.add-to-cart {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  background: #d90429;
+  z-index: 1;
+}
+.add-to-cart:hover:after {
+  width: 100%;
+  left: 0;
+}
+.add-to-cart:after {
+  border-radius: 5px;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: #ef233c;
+  right: 0;
+}
+.add-to-cart:active {
+  top: 2px;
+}
+
+.in-cart {
+  min-width: 130px;
+  height: 40px;
+
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  background-color: lightgreen;
+  box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
+}
+
+/* BUTTON END */
+
+/* CART // SIDEBAR */
+
 aside {
   position: fixed;
   top: 0;
@@ -74,46 +152,6 @@ aside li {
   flex-wrap: wrap;
 }
 
-button {
-  min-width: 130px;
-  height: 40px;
-  color: #fff;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  border: none;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  background: #d90429;
-  z-index: 1;
-}
-button:hover:after {
-  width: 100%;
-  left: 0;
-}
-button:after {
-  border-radius: 5px;
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  z-index: -1;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  background-color: #ef233c;
-  right: 0;
-}
-button:active {
-  top: 2px;
-}
-
 .card-item-details {
   display: flex;
   flex-direction: column;
@@ -141,37 +179,6 @@ aside div .count {
   width: 20px;
 }
 
-.toast-message {
-  margin-top: 2rem;
-  background-color: lightyellow;
-  border: 1px solid lavender;
-  display: inline-block;
-  padding: 0px 20px;
-  cursor: progress;
-  border-radius: 2rem;
-}
-
-.toast-message p span {
-  font-weight: 600;
-}
-
-button[disabled] {
-  min-width: 130px;
-  height: 40px;
-  color: white;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  border: none;
-  background-color: green;
-  box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
-}
-
 input {
   width: 30px;
   padding: 5px;
@@ -182,3 +189,5 @@ input {
   align-items: flex-end;
   gap: 0.5rem;
 }
+
+/* CART // SIDEBAR END */

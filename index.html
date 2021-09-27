@@ -17,14 +17,14 @@
             <div>
               <img :src="dish.url" alt="dish.name" width="180" height="250" />
               <p>{{dish.name}} · ₹ {{dish.price}}</p>
-              <button
+              <button class="add-to-cart"
                 v-if="!cart.find( ({ name }) => name === dish.name )"
                 @click="addToCart(dish)"
               >
                 Add to Cart
               </button>
 
-              <button
+              <button class="in-cart"
                 disabled
                 v-if="cart.find( ({ name }) => name === dish.name )"
               >
