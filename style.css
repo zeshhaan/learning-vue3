@@ -110,8 +110,8 @@ a {
   outline: none;
   border-radius: 5px;
   border: none;
-  color: black;
-  background-color: lightgreen;
+  color: white;
+  background-color: lightslategray;
   box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
 }
 
@@ -146,16 +146,31 @@ aside li {
 
 .cart-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.cart-item-img {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .card-item-details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.card-item-details div a {
+  padding: 2px 8px;
+  color: #fff;
+  background-color: crimson;
+  border-radius: 99999px;
+  font-size: 13px;
 }
 
 .card-item-details p {

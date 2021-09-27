@@ -17,18 +17,20 @@
             <div>
               <img :src="dish.url" alt="dish.name" width="180" height="250" />
               <p>{{dish.name}} · ₹ {{dish.price}}</p>
-              <button class="add-to-cart"
+              <button
+                class="add-to-cart"
                 v-if="!cart.find( ({ name }) => name === dish.name )"
                 @click="addToCart(dish)"
               >
                 Add to Cart
               </button>
 
-              <button class="in-cart"
+              <button
+                class="in-cart"
                 disabled
                 v-if="cart.find( ({ name }) => name === dish.name )"
               >
-                In Cart
+                Added!
               </button>
             </div>
           </li>
@@ -42,31 +44,21 @@
         <ul>
           <li :key="item.id" v-for="item in cart">
             <div class="cart-item">
-              <img :src="item.url" :alt="item.name" height="40" width="40" />
+              <div class="cart-item-img">
+                <img :src="item.url" :alt="item.name" height="40" width="40" />
+                <input
+                  type="number"
+                  min="1"
+                  v-model.number="item.count"
+                  @keyup.enter="addCount(item)"
+                />
+              </div>
+
               <div class="card-item-details">
                 <p>{{item.name}}</p>
                 <p>₹ {{item.price}}</p>
                 <div>
-                  <input
-                    type="number"
-                    min="1"
-                    v-model.number="item.count"
-                    @keyup.enter="addCount(item)"
-                  />
-                  <a @click="removeItem(item)" title="Delete Item">
-                    <svg
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="crimson"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </a>
+                  <a @click="removeItem(item)" title="Delete Item"> Remove </a>
                 </div>
               </div>
             </div>
