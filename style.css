@@ -173,7 +173,12 @@ button[disabled] {
 }
 
 input {
-  width: 50px;
-  padding: 10px;
+  width: 30px;
+  padding: 5px;
   accent-color: crimson;
+}
+
+.card-item-details div {
+  align-items: flex-end;
+  gap: 0.5rem;
 }

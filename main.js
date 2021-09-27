@@ -39,7 +39,7 @@ const App = {
   },
   methods: {
     addToCart(e) {
-      console.table(e);
+      // console.table(e);
       let { id, name, url, price, count } = e;
       count++;
       this.cart.push({ name, id, url, price, count });
@@ -47,12 +47,19 @@ const App = {
       // this.count = this.cart.length;
     },
     addCount(e) {
-      console.table(e);
+      // console.table(e);
       this.cart.find(({ name }) => {
         if (name === e.name) {
           this.price = this.price + e.price * e.count;
         }
       });
+    },
+    removeItem(e) {
+      // first find index and then insert that index into array.splice
+      this.cart.splice(
+        this.cart.findIndex(({ name }) => name === e),
+        1
+      );
     },
   },
 };
