@@ -57,9 +57,10 @@ const App = {
     removeItem(e) {
       // first find index and then insert that index into array.splice
       this.cart.splice(
-        this.cart.findIndex(({ name }) => name === e),
+        this.cart.findIndex(({ name }) => name === e.name),
         1
       );
+      this.price = this.price - e.price * e.count;
     },
   },
 };
