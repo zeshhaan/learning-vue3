@@ -8,22 +8,8 @@
   </head>
   <body>
     <div id="app">
-      <div>
-        <input type="number" v-model.number="num1" /> +
-        <input type="number" v-model.number="num2" /> {{num1 + num2}}
-      </div>
-      <select v-model="dish">
-        <option>Chappathi</option>
-        <option>Beef</option>
-        <option>Porotta</option>
-      </select>
-      <p v-if="dish">You selected {{dish}}</p>
-      <div>
-        <button @click="increment">+</button> {{ count }}
-        <button :class="count !== 0 ? '' : disabled " @click="decrement">
-          -
-        </button>
-      </div>
+      <input type="text" v-model="message" placeholder="Enter your name here" />
+      <p v-if="message">{{greeting}}</p>
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>

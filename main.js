@@ -3,21 +3,12 @@ import "./style.css";
 const App = {
   data() {
     return {
-      dish: "",
-      num1: 1,
-      num2: 2,
-      count: 0,
-      disabled: 'disabled'
+      message: "",
     };
   },
-  methods: {
-    increment() {
-      this.count++;
-    },
-    decrement() {
-      if (this.count != 0) {
-        this.count--;
-      }
+  computed: {
+    greeting() {
+      return `Y'all dont be like this guy → ${this.message}`;
     },
   },
 };
