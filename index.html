@@ -56,7 +56,7 @@
 
               <div class="card-item-details">
                 <p>{{item.name}}</p>
-                <p>₹ {{item.price}}</p>
+                <p>₹ {{item.count * item.price}}</p>
                 <div>
                   <a @click="removeItem(item)" title="Delete Item"> Remove </a>
                 </div>
