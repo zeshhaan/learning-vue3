@@ -9,7 +9,7 @@
   <body>
     <div id="app">
       <nav class="flex">
-        <h2>Favourite Dishes</h2>
+        <h2>Favourite Dishes ✨</h2>
       </nav>
       <main>
         <ul>
@@ -46,12 +46,7 @@
             <div class="cart-item">
               <div class="cart-item-img">
                 <img :src="item.url" :alt="item.name" height="40" width="40" />
-                <input
-                  type="number"
-                  min="1"
-                  v-model.number="item.count"
-                  
-                />
+                <input type="number" min="1" v-model.number="item.count" />
               </div>
 
               <div class="card-item-details">
