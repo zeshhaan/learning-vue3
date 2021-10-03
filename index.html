@@ -20,10 +20,11 @@
               <button
                 class="add-to-cart"
                 v-if="!cart.find( ({ name }) => name === dish.name )"
-                @click="addItem(dish)"
+                @click="addToCart(dish)"
               >
                 Add to Cart
               </button>
+
               <button
                 class="in-cart"
                 disabled
@@ -49,7 +50,7 @@
                   type="number"
                   min="1"
                   v-model.number="item.count"
-                  @input="addCount(item)"
+                  
                 />
               </div>
 

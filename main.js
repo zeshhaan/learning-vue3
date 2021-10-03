@@ -34,21 +34,19 @@ const App = {
           price: 120,
         },
       ],
-      price: 0,
+      total: 0,
     };
   },
 
   methods: {
-    addItem(e) {
+    addToCart(e) {
       let { id, name, url, price, count } = e;
-      e.count++;
-      this.cart.push({ ...e });
+      count++;
+      this.cart.push({ name, id, url, price, count });
     },
-    addCount(e) {
-      return e.price * e.count;
-    },
+
     removeItem(e) {
-      // first find the index and then insert that index into array.splice
+      // first find index and then insert that index into array.splice
       this.cart.splice(
         this.cart.findIndex(({ name }) => name === e.name),
         1
@@ -58,10 +56,10 @@ const App = {
 
   computed: {
     totalPrice() {
-      this.cart.find(({ sum }) => {
-        this.price = sum;
-      });
-      return this.price;
+      return (this.total = this.cart.reduce(
+        (total, obj) => obj.sum + total,
+        0
+      ));
     },
   },
 };
