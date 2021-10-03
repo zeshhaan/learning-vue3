@@ -205,4 +205,9 @@ input {
   gap: 0.5rem;
 }
 
+.card-item-details a[title="Delete Item"]:hover {
+  color: white;
+  background-color: lightslategray;
+}
+
 /* CART // SIDEBAR END */
