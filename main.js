@@ -30,37 +30,38 @@ const App = {
           id: 4,
           name: "ButterChicken",
           url: "https://media.istockphoto.com/photos/tasty-butter-chicken-curry-dish-from-indian-cuisine-picture-id1300632831?b=1&k=20&m=1300632831&s=170667a&w=0&h=FjWbieLh-NkmRiL4xsaa3nEMjYmXxmRYpBtvipKGNW8=",
-          price: 120,
           count: 0,
+          price: 120,
         },
       ],
       price: 0,
     };
   },
+
   methods: {
     addToCart(e) {
-      // console.table(e);
       let { id, name, url, price, count } = e;
-      count++;
-      this.cart.push({ name, id, url, price, count });
-      // this.price = this.price + price;
-      // this.count = this.cart.length;
+      e.count++;
+      this.cart.push({ ...e });
     },
     addCount(e) {
-      // // console.table(e);
-      // this.cart.find(({ name }) => {
-      //   if (name === e.name) {
-      //     this.price = this.price + e.price * e.count;
-      //   }
-      // });
+      return e.price * e.count;
     },
     removeItem(e) {
-      // first find index and then insert that index into array.splice
+      // first find the index and then insert that index into array.splice
       this.cart.splice(
         this.cart.findIndex(({ name }) => name === e.name),
         1
       );
-      // this.price = this.price - e.price * e.count;
+    },
+  },
+
+  computed: {
+    totalPrice() {
+      // this.cart.find(({ price }) => {
+      //   this.price = this.count * this.price;
+      // });
+      return `Hi`;
     },
   },
 };
