@@ -39,7 +39,7 @@ const App = {
   },
 
   methods: {
-    addToCart(e) {
+    addItem(e) {
       let { id, name, url, price, count } = e;
       e.count++;
       this.cart.push({ ...e });
@@ -58,10 +58,10 @@ const App = {
 
   computed: {
     totalPrice() {
-      // this.cart.find(({ price }) => {
-      //   this.price = this.count * this.price;
-      // });
-      return `Hi`;
+      this.cart.find(({ sum }) => {
+        this.price = sum;
+      });
+      return this.price;
     },
   },
 };

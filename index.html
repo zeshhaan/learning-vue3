@@ -20,7 +20,7 @@
               <button
                 class="add-to-cart"
                 v-if="!cart.find( ({ name }) => name === dish.name )"
-                @click="addToCart(dish)"
+                @click="addItem(dish)"
               >
                 Add to Cart
               </button>
@@ -55,7 +55,7 @@
 
               <div class="card-item-details">
                 <p>{{item.name}}</p>
-                <p>₹ {{item.count * item.price}}</p>
+                <p>₹ {{item.sum = item.count * item.price}}</p>
                 <div>
                   <a @click="removeItem(item)" title="Delete Item"> Remove </a>
                 </div>
