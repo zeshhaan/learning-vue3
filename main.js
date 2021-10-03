@@ -34,7 +34,6 @@ const App = {
           price: 120,
         },
       ],
-      total: 0,
     };
   },
 
@@ -56,10 +55,7 @@ const App = {
 
   computed: {
     totalPrice() {
-      return (this.total = this.cart.reduce(
-        (total, obj) => obj.sum + total,
-        0
-      ));
+      return this.cart.reduce((total, obj) => obj.sum + total, 0);
     },
   },
 };
