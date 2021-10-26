@@ -7,6 +7,19 @@
   margin-top: 60px;
 }
 
-button.disabled {
-  cursor: not-allowed;
+.plan-wrapper {
+  border: 5px dotted #ddd;
+  color: black;
+}
+
+.plan-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.plan-item {
+  background: rgb(202, 255, 166);
+  padding: 1rem 2rem;
+  border: 2px solid rgb(255, 255, 255);
 }
