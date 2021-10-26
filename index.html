@@ -8,10 +8,16 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" v-model="message" placeholder="Enter your name here" />
-      <p v-if="message">{{greeting}}</p>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
     </div>
-
+    <script type="text/x-template" id="click-counter-template">
+      <button @click="count++">this is so much better counter {{count}}</button>
+    </script>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>

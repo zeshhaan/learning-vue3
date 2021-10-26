@@ -1,16 +1,12 @@
 import "./style.css";
 
-const App = {
-  data() {
-    return {
-      message: "",
-    };
-  },
-  computed: {
-    greeting() {
-      return `Y'all dont be like this guy → ${this.message}`;
+Vue.createApp({})
+  .component("click-counter", {
+    template: "#click-counter-template",
+    data() {
+      return {
+        count: 0,
+      };
     },
-  },
-};
-
-Vue.createApp(App).mount("#app");
+  })
+  .mount("#app");
