@@ -1,12 +1,20 @@
 import "./style.css";
 
-Vue.createApp({})
-  .component("click-counter", {
-    template: "#click-counter-template",
-    data() {
-      return {
-        count: 0,
-      };
+Vue.createApp({
+  data() {
+    return {
+      plans: ["Vue", "Svelte", "React"],
+    };
+  },
+})
+  .component("plan", {
+    template: "#plan-template",
+    props: {
+      name: {
+        type: String,
+        required: true,
+        default: "jQuery",
+      },
     },
   })
   .mount("#app");
