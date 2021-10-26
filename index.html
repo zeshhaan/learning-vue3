@@ -8,24 +8,16 @@
   </head>
   <body>
     <div id="app">
-      <div>
-        <input type="number" v-model.number="num1" /> +
-        <input type="number" v-model.number="num2" /> {{num1 + num2}}
-      </div>
-      <select v-model="dish">
-        <option>Chappathi</option>
-        <option>Beef</option>
-        <option>Porotta</option>
-      </select>
-      <p v-if="dish">You selected {{dish}}</p>
-      <div>
-        <button @click="increment">+</button> {{ count }}
-        <button :class="count !== 0 ? '' : disabled " @click="decrement">
-          -
-        </button>
-      </div>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
+      <click-counter></click-counter>
     </div>
-
+    <script type="text/x-template" id="click-counter-template">
+      <button @click="count++">this is so much better counter {{count}}</button>
+    </script>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>
