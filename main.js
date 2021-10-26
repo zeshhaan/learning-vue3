@@ -1,12 +1,14 @@
 import "./style.css";
 
-Vue.createApp({
-  data() {
-    return {
-      plans: ["Vue", "Svelte", "React"],
-    };
-  },
-})
+Vue.createApp({})
+  .component("plan-picker", {
+    template: "#plan-picker-template",
+    data() {
+      return {
+        plans: ["Vue", "Svelte", "React"],
+      };
+    },
+  })
   .component("plan", {
     template: "#plan-template",
     props: {
