@@ -6,7 +6,6 @@ const App = {
       name: "",
       email: "",
       message: "",
-      response: "",
       activeClass: "active",
       submitText: "Submit",
     };
@@ -16,12 +15,14 @@ const App = {
       this.submitText = "Submitting...";
       setTimeout(() => {
         this.submitText = "Sent";
-        this.activeClass = "";
-        this.submitText = "Submit";
-      }, 3000);
-      this.name = "";
-      this.email = "";
-      this.message = "";
+      }, 1000);
     },
-  })
-  .mount("#app");
+  },
+  computed: {
+    response() {
+      return `Thanks for contacting ${this.name}, you will hear back soon on your email ${this.email} for your request about <pre>${this.message}</pre>`;
+    },
+  },
+};
+
+Vue.createApp(App).mount("#app");
