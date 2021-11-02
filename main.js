@@ -1,22 +1,27 @@
 import "./style.css";
 
-Vue.createApp({})
-  .component("plan-picker", {
-    template: "#plan-picker-template",
-    data() {
-      return {
-        plans: ["Vue", "Svelte", "React"],
-      };
-    },
-  })
-  .component("plan", {
-    template: "#plan-template",
-    props: {
-      name: {
-        type: String,
-        required: true,
-        default: "jQuery",
-      },
+const App = {
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+      response: "",
+      activeClass: "active",
+      submitText: "Submit",
+    };
+  },
+  methods: {
+    submitForm() {
+      this.submitText = "Submitting...";
+      setTimeout(() => {
+        this.submitText = "Sent";
+        this.activeClass = "";
+        this.submitText = "Submit";
+      }, 3000);
+      this.name = "";
+      this.email = "";
+      this.message = "";
     },
   })
   .mount("#app");

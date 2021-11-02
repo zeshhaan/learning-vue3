@@ -23,3 +23,7 @@
   padding: 1rem 2rem;
   border: 2px solid rgb(255, 255, 255);
 }
+
+.active {
+  background-color: #64b1ff;
+}

@@ -8,13 +8,29 @@
   </head>
   <body>
     <div id="app">
-      <div class="plan-wrapper">
-        HEY YO
-        <plan-picker></plan-picker>
-        HEY YO
-        <plan-picker></plan-picker>
-        HEY YO
-      </div>
+      <form @submit.prevent="submitForm">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" v-model="name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" v-model="email" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            v-model="message"
+          ></textarea>
+        </div>
+        <button :class="[name&&email ? activeClass : '']">
+          {{submitText}}
+        </button>
+      </form>
     </div>
     <script type="text/x-template" id="plan-template">
       <div class="plan-item">{{name}}</div>
