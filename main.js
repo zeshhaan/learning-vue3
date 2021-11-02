@@ -23,7 +23,5 @@ const App = {
       this.email = "";
       this.message = "";
     },
-  },
-};
-
-Vue.createApp(App).mount("#app");
+  })
+  .mount("#app");

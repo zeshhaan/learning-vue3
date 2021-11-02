@@ -32,7 +32,15 @@
         </button>
       </form>
     </div>
+    <script type="text/x-template" id="plan-template">
+      <div class="plan-item">{{name}}</div>
+    </script>
 
+    <script type="text/x-template" id="plan-picker-template">
+      <div class="plan-list">
+        <plan v-for="plan in plans" :name="plan"></plan>
+      </div>
+    </script>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>
