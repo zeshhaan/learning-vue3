@@ -3,21 +3,25 @@ import "./style.css";
 const App = {
   data() {
     return {
-      dish: "",
-      num1: 1,
-      num2: 2,
-      count: 0,
-      disabled: 'disabled'
+      name: "",
+      email: "",
+      message: "",
+      response: "",
+      activeClass: "active",
+      submitText: "Submit",
     };
   },
   methods: {
-    increment() {
-      this.count++;
-    },
-    decrement() {
-      if (this.count != 0) {
-        this.count--;
-      }
+    submitForm() {
+      this.submitText = "Submitting...";
+      setTimeout(() => {
+        this.submitText = "Sent";
+        this.activeClass = "";
+        this.submitText = "Submit";
+      }, 3000);
+      this.name = "";
+      this.email = "";
+      this.message = "";
     },
   },
 };
