@@ -8,30 +8,33 @@
   </head>
   <body>
     <div id="app">
-      <form @submit.prevent="submitForm">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" type="text" v-model="name" />
+      <div class="contain">
+        <h2>Blog Posts</h2>
+
+        <div class="new">
+          <h3>Add a New Post</h3>
+          <form @submit.prevent="addNewPost">
+            <input v-model="newTitle" placeholder="title" required />
+            <input v-model="newAuthor" placeholder="author name" required />
+            <select v-model="newLabel" required>
+              <option disabled value="">Add a New label</option>
+              <option v-for="label in labels" :key="label">{{label}}</option>
+            </select>
+            <button type="submit">Add New Blog Post</button>
+          </form>
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" type="email" v-model="email" />
+
+        <select v-model="selected">
+          <option disabled value="">Filter with a label</option>
+          <option v-for="label in labels" :key="label">{{label}}</option>
+        </select>
+
+        <div v-for="post in filteredLabels" :key="post.title" class="post">
+          <span class="label">{{ post.label }}</span>
+          <p>{{ post.title }}</p>
+          <small>{{ post.author }}</small>
         </div>
-        <div>
-          <label for="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            cols="30"
-            rows="10"
-            v-model="message"
-          ></textarea>
-        </div>
-        <button :class="[name&&email ? activeClass : '']">
-          {{submitText}}
-        </button>
-      </form>
-      <p v-if="submitText === 'Sent' ">{{response}}</p>
+      </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
