@@ -20,7 +20,7 @@ const App = {
   },
   computed: {
     response() {
-      return `Thanks for contacting ${this.name}, you will hear back soon on your email ${this.email} for your request about <pre>${this.message}</pre>`;
+      return `Thanks for contacting ${this.name}, you will hear back soon on your email ${this.email} for your request about "${this.message}"`;
     },
   },
 };
