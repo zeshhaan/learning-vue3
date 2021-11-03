@@ -8,39 +8,12 @@
   </head>
   <body>
     <div id="app">
-      <form @submit.prevent="submitForm">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" type="text" v-model="name" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" type="email" v-model="email" />
-        </div>
-        <div>
-          <label for="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            cols="30"
-            rows="10"
-            v-model="message"
-          ></textarea>
-        </div>
-        <button :class="[name&&email ? activeClass : '']">
-          {{submitText}}
-        </button>
-      </form>
-    </div>
-    <script type="text/x-template" id="plan-template">
-      <div class="plan-item">{{name}}</div>
-    </script>
-
-    <script type="text/x-template" id="plan-picker-template">
-      <div class="plan-list">
-        <plan v-for="plan in plans" :name="plan"></plan>
+      <div>
+        <button @click="getTaco">Click me to order a taco</button>
+        <h2>{{orderStatus}}</h2>
+        <p v-if="orderSubmitted">{{orderSubmitted}}</p>
       </div>
-    </script>
+    </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>

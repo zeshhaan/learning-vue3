@@ -1,27 +1,26 @@
-import "./style.css";
+import "./style.scss";
 
 const App = {
   data() {
     return {
-      name: "",
-      email: "",
-      message: "",
-      response: "",
-      activeClass: "active",
-      submitText: "Submit",
+      orderStatus: "Where is my taco...",
+      orderSubmitted: null,
     };
   },
   methods: {
-    submitForm() {
-      this.submitText = "Submitting...";
-      setTimeout(() => {
-        this.submitText = "Sent";
-        this.activeClass = "";
-        this.submitText = "Submit";
-      }, 3000);
-      this.name = "";
-      this.email = "";
-      this.message = "";
+    getTaco() {
+      this.orderStatus = "🌮!";
     },
-  })
-  .mount("#app");
+  },
+  watch: {
+    orderStatus() {
+      //add code here to run when orderStatus is changed
+      this.orderSubmitted = "Your order was submitted";
+      setTimeout(() => {
+        this.orderSubmitted = null;
+      }, 1000);
+    },
+  },
+};
+
+Vue.createApp(App).mount("#app");
