@@ -7,37 +7,66 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app" class="container mx-auto py-6">
-      <div class="content">
-        <h1 class="title">Coffee Plans</h1>
-        <plan-picker></plan-picker>
-        <h2 class="subtitle">
-          We travel the world to source the very best single origin coffee for
-          you
-        </h2>
-        <plan-picker></plan-picker>
+    <div id="app">
+      <nav class="flex">
+        <h2>Favourite Dishes ✨</h2>
+      </nav>
+      <main>
+        <ul>
+          <li :key="dish.id" v-for="dish in dishes">
+            <div>
+              <img :src="dish.url" alt="dish.name" width="180" height="250" />
+              <p>{{dish.name}} · ₹ {{dish.price}}</p>
+              <button
+                class="add-to-cart"
+                v-if="!cart.find( ({ name }) => name === dish.name )"
+                @click="addToCart(dish)"
+              >
+                Add to Cart
+              </button>
+
+              <button
+                class="in-cart"
+                disabled
+                v-if="cart.find( ({ name }) => name === dish.name )"
+              >
+                Added!
+              </button>
+            </div>
+          </li>
+        </ul>
+      </main>
+      <aside v-if="cart.length">
+        <div>
+          <p>Cart</p>
+          <p class="count">{{cart.length}}</p>
+        </div>
+        <ul>
+          <li :key="item.id" v-for="item in cart">
+            <div class="cart-item">
+              <div class="cart-item-img">
+                <img :src="item.url" :alt="item.name" height="40" width="40" />
+                <input type="number" min="1" v-model.number="item.count" />
+              </div>
+
+              <div class="card-item-details">
+                <p>{{item.name}}</p>
+                <p>₹ {{item.sum = item.count * item.price}}</p>
+                <div>
+                  <a @click="removeItem(item)" title="Delete Item"> Remove </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p>Total Amount: ₹ {{totalPrice}}</p>
+      </aside>
+
+      <div class="toast-message">
+        <p><span>Coming Soon</span> → Add your own favourite dishes 🍱</p>
       </div>
     </div>
-    <!-- templates -->
-    <!-- plan template -->
-    <script type="text/x-template" id="plan-template">
-      <div class="plan">
-            <div class="description">
-              <span class="title">
-                {{name.toUpperCase()}} {{name1}}
-              </span>
-            </div>
-          </div>
-    </script>
-    <!-- plan picker template -->
-    <script type="text/x-template" id="plan-picker-template">
-      <div class="plans">
 
-          <plan v-for="plan in plans" :name="plan"></plan>
-
-        </div>
-    </script>
-    <!-- templates end -->
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
   </body>
