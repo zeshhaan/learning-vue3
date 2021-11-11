@@ -30,10 +30,18 @@
           <p>{{dish.name}} · ₹ {{dish.price}}</p>
           <button
             class="add-to-cart"
+            v-if="!cart.find( ({ name }) => name === dish.name )"
             @click="$emit('add-to-cart', dish)"
             >
             Add to Cart
           </button>
+          <button
+                class="in-cart"
+                disabled
+                v-if="cart.find( ({ name }) => name === dish.name )"
+              >
+                Added!
+              </button>
         </div>
       </li>
     </script>
@@ -77,6 +85,7 @@
         <ul>
           <cart-item v-for="item in cart" :item="item" @remove-cart-item="removeItem"></cart-item>
         </ul>
+        <p>Total Amount: ₹ {{totalPrice}}</p>
       </aside>
     </script>
 

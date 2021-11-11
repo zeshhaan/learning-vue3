@@ -63,6 +63,7 @@ const app = Vue.createApp({
   })
   .component("dish-item", {
     template: "#dish-item-template",
+    inject: ["cart"],
     props: ["dish"],
   })
   .component("cart", {
@@ -76,11 +77,11 @@ const app = Vue.createApp({
         );
       },
     },
-    // data() {
-    //   return {
-    //     cart: this.cart,
-    //   };
-    // },
+    computed: {
+      totalPrice() {
+        return this.cart.reduce((total, obj) => obj.sum + total, 0);
+      },
+    },
   })
   .component("cart-item", {
     template: "#cart-item-template",
