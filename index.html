@@ -22,6 +22,7 @@
     </div>
 
     <!-- X-TEMPLATES FOR DISH -->
+    <!-- DISH ITEM -->
     <script type="text/x-template" id="dish-item-template">
       <li :key="dish.id">
         <div>
@@ -36,6 +37,8 @@
         </div>
       </li>
     </script>
+
+    <!-- DISH -->
     <script type="text/x-template" id="dishes-template">
       <ul>
         <dish-item v-for="dish in dishes" :dish="dish" @add-to-cart="$emit('addToCart', dish)">
@@ -44,13 +47,29 @@
     </script>
 
     <!-- X-TEMPLATES FOR CART -->
+
+    <!-- CART ITEM -->
     <script type="text/x-template" id="cart-item-template">
       <li :key="item.id">
-        <p>{{item.name}}</p>
+        <div class="cart-item">
+          <div class="cart-item-img">
+            <img :src="item.url" :alt="item.name" height="40" width="40" />
+            <input type="number" min="1" v-model.number="item.count" />
+          </div>
+          <div class="card-item-details">
+            <p>{{item.name}}</p>
+            <p>₹ {{item.sum = item.count * item.price}}</p>
+            <div>
+              <a @click="removeItem(item)" title="Delete Item"> Remove </a>
+            </div>
+          </div>
+        </div>
       </li>
     </script>
+
+    <!-- CART -->
     <script type="text/x-template" id="cart-template">
-      <aside v-if="cart.length" :cart="cart" :cart-item="cart">
+      <aside v-if="cart.length" :cart="cart" >
         <div>
           <p>Cart</p>
           <p class="count">{{cart.length}}</p>

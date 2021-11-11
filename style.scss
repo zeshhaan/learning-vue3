@@ -20,7 +20,6 @@ $bordergray: 1px solid lightgray;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  user-select: none;
 }
 
 img {
@@ -51,6 +50,7 @@ span.status {
 a {
   display: block;
   cursor: pointer;
+  user-select: none;
 }
 
 .toast-message {

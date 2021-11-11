@@ -14,6 +14,7 @@ const app = Vue.createApp({
       this.cart.push({ name, id, url, price, count });
     },
   },
+
   provide() {
     return {
       cart: this.cart,
@@ -59,13 +60,6 @@ const app = Vue.createApp({
         ],
       };
     },
-    // methods: {
-    //   addToCart(e) {
-    //     let { id, name, url, price, count } = e;
-    //     count++;
-    //     this.cart.push({ name, id, url, price, count });
-    //   },
-    // },
   })
   .component("dish-item", {
     template: "#dish-item-template",
@@ -74,21 +68,19 @@ const app = Vue.createApp({
   .component("cart", {
     template: "#cart-template",
     inject: ["cart"],
-    data() {
-      return {
-        cart: this.cart,
-      };
-    },
-    // methods: {
-    //   addToCart(e) {
-    //     let { id, name, url, price, count } = e;
-    //     count++;
-    //     this.cart.push({ name, id, url, price, count });
-    //   },
+    // data() {
+    //   return {
+    //     cart: this.cart,
+    //   };
     // },
   })
   .component("cart-item", {
     template: "#cart-item-template",
-    props: ["item", "cart"],
+    props: ["item"],
+    methods: {
+      removeItem(e) {
+        console.log(e);
+      },
+    },
   })
   .mount("#app");
