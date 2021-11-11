@@ -60,7 +60,7 @@
             <p>{{item.name}}</p>
             <p>₹ {{item.sum = item.count * item.price}}</p>
             <div>
-              <a @click="removeItem(item)" title="Delete Item"> Remove </a>
+              <a @click="$emit('remove-cart-item', item)" title="Delete Item"> Remove </a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
           <p class="count">{{cart.length}}</p>
         </div>
         <ul>
-          <cart-item v-for="item in cart" :item="item"></cart-item>
+          <cart-item v-for="item in cart" :item="item" @remove-cart-item="removeItem"></cart-item>
         </ul>
       </aside>
     </script>

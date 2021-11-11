@@ -68,6 +68,14 @@ const app = Vue.createApp({
   .component("cart", {
     template: "#cart-template",
     inject: ["cart"],
+    methods: {
+      removeItem(e) {
+        this.cart.splice(
+          this.cart.findIndex(({ name }) => name === e.name),
+          1
+        );
+      },
+    },
     // data() {
     //   return {
     //     cart: this.cart,
@@ -77,10 +85,5 @@ const app = Vue.createApp({
   .component("cart-item", {
     template: "#cart-item-template",
     props: ["item"],
-    methods: {
-      removeItem(e) {
-        console.log(e);
-      },
-    },
   })
   .mount("#app");
