@@ -50,6 +50,7 @@ span.status {
 a {
   display: block;
   cursor: pointer;
+  user-select: none;
 }
 
 .toast-message {
