@@ -24,6 +24,6 @@ Everything hardcoded into the root. Used Vue directives, `methods`, `computed` p
 
 Refactored above application into components. Using `props`, `$emits` and also `Provide` and `Inject` to pass children from one grandparent component to its sibling.
 
-  <img src="https://user-images.githubusercontent.com/34814964/141605795-ead84705-0a2a-455f-93f9-254a1bfc6042.png" alt="Screenshot of Shopping Cart with Vue devtools opened showing the the app is refactored into sub components"/>
+  <img src="https://user-images.githubusercontent.com/34814964/141643321-47304c1c-0454-43c7-b0a6-afaec40a7815.png" alt="Screenshot of Shopping Cart with Vue devtools opened showing the the app is refactored into sub components"/>
 
-[🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/exercise/directives%2Fshopping-cart-ft-components) | [✅ Preview](https://learning-vue3-git-exercise-directivesshopping-cart-455631-zshn.vercel.app/)
+[🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/exercise/components%2Fshopping-cart) | [✅ Preview](https://learning-vue3-git-exercise-componentsshopping-cart-zshn.vercel.app/)
