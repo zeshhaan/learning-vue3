@@ -15,6 +15,7 @@
 
 Everything hardcoded into the root. Used Vue directives, `methods`, `computed` properites and many more.
 
+
   <img src="https://user-images.githubusercontent.com/34814964/141605629-c2c0c4bb-4888-4a21-af59-e2002c086b00.png" alt="Screenshot of Basic Shopping Cart with Vue devtools opened showing the hardcoded app structure"/>
 
 [🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/exercise/directives%2Fshopping-cart) | [✅ Preview](https://learning-vue3-git-exercise-directivesshopping-cart-zshn.vercel.app/)
