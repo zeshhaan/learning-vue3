@@ -27,3 +27,15 @@ Refactored above application into components. Using `props`, `$emits` and also `
   <img src="https://user-images.githubusercontent.com/34814964/141605795-ead84705-0a2a-455f-93f9-254a1bfc6042.png" alt="Screenshot of Shopping Cart with Vue devtools opened showing the the app is refactored into sub components"/>
 
 [🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/exercise/directives%2Fshopping-cart-ft-components) | [✅ Preview](https://learning-vue3-git-exercise-directivesshopping-cart-455631-zshn.vercel.app/)
+
+### Shopping Cart ft. Vue SFC
+
+- Removed serving Vue from CDN
+- added vue@next
+- added plugin @vitejs/plugin-vue
+- added @vue/compiler-sfc
+- some component refactoring and style enhancements
+
+  <img src="https://user-images.githubusercontent.com/34814964/142730247-d6abea7a-e815-412c-b843-fa2434924012.png" alt="Screenshot of Shopping Cart with Vue devtools opened showing the Vue SFC app"/>
+
+[🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/sfc) | [✅ Preview](https://learning-vue3-git-sfc-zshn.vercel.app/)
