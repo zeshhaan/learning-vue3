@@ -8,23 +8,96 @@
   </head>
   <body>
     <div id="app">
-      <div>
-        <input type="number" v-model.number="num1" /> +
-        <input type="number" v-model.number="num2" /> {{num1 + num2}}
-      </div>
-      <select v-model="dish">
-        <option>Chappathi</option>
-        <option>Beef</option>
-        <option>Porotta</option>
-      </select>
-      <p v-if="dish">You selected {{dish}}</p>
-      <div>
-        <button @click="increment">+</button> {{ count }}
-        <button :class="count !== 0 ? '' : disabled " @click="decrement">
-          -
-        </button>
+      <nav>
+        <div>
+          <h2>Foodiegram ✨</h2>
+          <div class="cart">
+            <a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                width="20"
+                height="20"
+              >
+                <path
+                  d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                />
+              </svg>
+              <p>{{cart.length}}</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <main>
+        <dishes @add-to-cart="addToCart"></dishes>
+        <cart></cart>
+      </main>
+
+      <div class="toast-message">
+        <p><span>Coming Soon</span> → Add your own favourite dishes 🍱</p>
       </div>
     </div>
+
+    <!-- X-TEMPLATES FOR DISH -->
+    <!-- DISH ITEM -->
+    <script type="text/x-template" id="dish-item-template">
+      <li :key="dish.id">
+        <div>
+          <img :src="dish.url" alt="dish.name" width="180" height="250" />
+          <p>{{dish.name}} · ₹ {{dish.price}}</p>
+          <button
+            class="add-to-cart"
+            :disabled="cart.find( ({ name }) => name === dish.name )"
+            @click="$emit('add-to-cart', dish)"
+            >
+            Add to Cart
+          </button>
+        </div>
+      </li>
+    </script>
+
+    <!-- DISH -->
+    <script type="text/x-template" id="dishes-template">
+      <ul>
+        <dish-item v-for="dish in dishes" :dish="dish" @add-to-cart="$emit('addToCart', dish)">
+        </dish-item>
+      </ul>
+    </script>
+
+    <!-- X-TEMPLATES FOR CART -->
+
+    <!-- CART ITEM -->
+    <script type="text/x-template" id="cart-item-template">
+      <li :key="item.id">
+        <div class="cart-item">
+          <div class="cart-item-img">
+            <img :src="item.url" :alt="item.name" height="40" width="40" />
+            <input type="number" min="1" v-model.number="item.count" />
+          </div>
+          <div class="card-item-details">
+            <p>{{item.name}}</p>
+            <p>₹ {{item.sum = item.count * item.price}}</p>
+            <div>
+              <a @click="$emit('remove-cart-item', item)" title="Delete Item"> Remove </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </script>
+
+    <!-- CART -->
+    <script type="text/x-template" id="cart-template">
+      <aside v-if="cart.length" :cart="cart" >
+        <div>
+          <p><b>Cart</b></p>
+        </div>
+        <ul>
+          <cart-item v-for="item in cart" :item="item" @remove-cart-item="removeItem"></cart-item>
+        </ul>
+        <p>Total Amount: ₹ {{totalPrice}}</p>
+      </aside>
+    </script>
 
     <script src="https://unpkg.com/vue@next"></script>
     <script type="module" src="/main.js"></script>
