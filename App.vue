@@ -13,6 +13,7 @@
 import Dishes from "./components/Dishes.vue";
 import Cart from "./components/Cart.vue";
 import Navigation from "./components/Navigation.vue";
+import {ref} from 'vue'
 
 export default {
   name: "App",
@@ -21,17 +22,15 @@ export default {
     Dishes,
     Navigation,
   },
-  data() {
-    return {
-      cart: [],
-    };
-  },
-  methods: {
-    addToCart(e) {
+
+  setup(){
+    const cart = ref([]);
+    function addToCart(e) {
       let { id, name, url, price, count } = e;
       count++;
-      this.cart.push({ name, id, url, price, count });
-    },
+      cart.value.push({ name, id, url, price, count });
+    }
+    return {cart, addToCart};
   },
 
   provide() {
@@ -41,5 +40,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss"></style>
