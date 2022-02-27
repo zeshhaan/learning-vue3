@@ -39,3 +39,20 @@ Refactored above application into components. Using `props`, `$emits` and also `
   <img src="https://user-images.githubusercontent.com/34814964/142730247-d6abea7a-e815-412c-b843-fa2434924012.png" alt="Screenshot of Shopping Cart with Vue devtools opened showing the Vue SFC app"/>
 
 [🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/sfc) | [✅ Preview](https://learning-vue3-git-sfc-zshn.vercel.app/)
+
+
+
+### Shopping Cart ft. components using Vue 3
+
+Refactored above application into components. Using `props`, `$emits` and also `Provide` and `Inject` to pass children from one grandparent component to its sibling.
+
+  <img src="https://user-images.githubusercontent.com/34814964/141605795-ead84705-0a2a-455f-93f9-254a1bfc6042.png" alt="Screenshot of Shopping Cart with Vue devtools opened showing the the app is refactored into sub components"/>
+
+[🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/exercise/directives%2Fshopping-cart-ft-components) | [✅ Preview](https://learning-vue3-git-exercise-directivesshopping-cart-455631-zshn.vercel.app/)
+
+
+### Shopping Cart ft. Vue 3 Composition API
+
+<img width="732" alt="Screenshot of Shopping Cart app using Composition API" src="https://user-images.githubusercontent.com/34814964/155870746-d789d19f-bb82-4f08-9a7a-f9c94c72a72b.png">
+
+[🔍 Inspect](https://github.com/zeshhaan/learning-vue3/tree/embracing-composition-api) | [✅ Preview](https://learning-vue3-git-embracing-composition-api-zshn.vercel.app/)
