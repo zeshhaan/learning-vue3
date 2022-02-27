@@ -14,9 +14,15 @@
   </li>
 </template>
 
-<script>
-export default {
-  inject: ["cart"],
-  props: ["dish"],
-};
+<script setup>
+import { inject } from 'vue';
+
+const cart = inject('cart');
+
+defineProps({
+  dish: {
+    type: Object,
+    required: true,
+  },
+});
 </script>

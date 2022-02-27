@@ -14,26 +14,17 @@
   </aside>
 </template>
 
-<script>
+<script setup>
 import CartItem from "./CartItem.vue";
+import { inject, computed } from 'vue';
 
-export default {
-  components: {
-    CartItem,
-  },
-  inject: ["cart"],
-  methods: {
-    removeItem(e) {
-      this.cart.splice(
-        this.cart.findIndex(({ name }) => name === e.name),
-        1
-      );
-    },
-  },
-  computed: {
-    totalPrice() {
-      return this.cart.reduce((total, obj) => obj.sum + total, 0);
-    },
-  },
-};
+const cart = inject('cart');
+
+const removeItem = e => {
+  cart.value.splice(cart.value.findIndex(({ name }) => name === e.name), 1);
+}
+
+const totalPrice = computed(() => {
+  return cart.value.reduce((total, obj) => obj.sum + total, 0);
+})
 </script>

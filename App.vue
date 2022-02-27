@@ -5,41 +5,24 @@
     <Cart></Cart>
   </main>
   <div class="toast-message">
-    <p><span>Coming Soon</span> → Add your own favourite dishes 🍱</p>
+    <p>
+      <span>Coming Soon</span> → Add your own favourite dishes 🍱
+    </p>
   </div>
 </template>
 
-<script>
+<script setup>
 import Dishes from "./components/Dishes.vue";
 import Cart from "./components/Cart.vue";
 import Navigation from "./components/Navigation.vue";
+import { ref, provide } from 'vue';
 
-export default {
-  name: "App",
-  components: {
-    Cart,
-    Dishes,
-    Navigation,
-  },
-  data() {
-    return {
-      cart: [],
-    };
-  },
-  methods: {
-    addToCart(e) {
-      let { id, name, url, price, count } = e;
-      count++;
-      this.cart.push({ name, id, url, price, count });
-    },
-  },
+const cart = ref([]);
+provide('cart', cart)
 
-  provide() {
-    return {
-      cart: this.cart,
-    };
-  },
-};
+const addToCart = e => {
+  let { id, name, url, price, count } = e;
+  count++;
+  cart.value.push({ id, name, url, price, count });
+}
 </script>
-
-<style lang="scss"></style>
