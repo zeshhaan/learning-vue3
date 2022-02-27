@@ -1,27 +1,16 @@
 <template>
   <ul>
-    <DishItem
-      v-for="dish in dishes"
-      :dish="dish"
-      @add-to-cart="$emit('addToCart', dish)"
-    >
-    </DishItem>
+    <DishItem v-for="dish in state.dishes" :dish="dish" @add-to-cart="$emit('addToCart', dish)"></DishItem>
   </ul>
 </template>
 
-<script>
+<script setup>
 import DishItem from "./DishItem.vue";
+import { reactive } from 'vue';
 
-export default {
-  components: {
-    DishItem,
-  },
-  props: ["cart-items"],
-
-  data() {
-    return {
-      dishes: [
-        {
+const state = reactive({
+  dishes: [
+     {
           id: 1,
           name: "Porotta",
           url: "https://www.whiskaffair.com/wp-content/uploads/2020/04/Kerala-Parotta-3.jpg",
@@ -45,12 +34,11 @@ export default {
         {
           id: 4,
           name: "Butter Chicken",
-          url: "https://media.istockphoto.com/photos/tasty-butter-chicken-curry-dish-from-indian-cuisine-picture-id1300632831?b=1&k=20&m=1300632831&s=170667a&w=0&h=FjWbieLh-NkmRiL4xsaa3nEMjYmXxmRYpBtvipKGNW8=",
+          url: "https://healthyfitnessmeals.com/wp-content/uploads/2020/01/Butter-chicken-500x500.jpg",
           count: 0,
           price: 120,
         },
-      ],
-    };
-  },
-};
+  ],
+});
+
 </script>

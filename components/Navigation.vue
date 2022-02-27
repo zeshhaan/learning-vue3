@@ -21,8 +21,12 @@
     </div>
   </nav>
 </template>
-<script>
-export default {
-  props: ["cart"],
-};
+
+<script setup>
+defineProps({
+  cart: {
+    type: Array,
+    default: () => [],
+  },
+});
 </script>
